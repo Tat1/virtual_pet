@@ -14,7 +14,8 @@ ON_HEROKU = "ON_HEROKU" in os.environ
 if ON_HEROKU:
     from credentials import db_hosted
     db = db_hosted
-    uri = "mongodb+srv://%s:%s@%s/%s?retryWrites=true" % (db.user, db.password, db.host, db.db_name)
+    uri = "mongodb://%s:%s@%s/%s" % (db.user, db.password, db.host, db.db_name)
+    #uri = "mongodb+srv://%s:%s@%s/%s?retryWrites=true" % (db.user, db.password, db.host, db.db_name)
 else:
     from credentials import db_local
     db = db_local
