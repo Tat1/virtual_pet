@@ -1,6 +1,6 @@
 import os
 
-host='ds033390.mlab.com:33390'
-db_name = 'test1'
+host = os.environ['MLAB_DBHOST']
+db_name = os.environ['MLAB_DBNAME']
 user = os.environ['MLAB_USER']
 password = os.environ['MLAB_PASS']
