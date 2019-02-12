@@ -5,7 +5,7 @@ import time
 
 now = time.time()
 
-r = requests.post("http://localhost:5000/add_data",
+r = requests.post("https://mysterious-savannah-98391.herokuapp.com/add_data",
                   json={'time': now,
                         'value': 1.0})
 
