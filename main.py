@@ -77,7 +77,7 @@ def tdpage_hm_live():
         [
             { '$group' : { '_id' : { 'hour' : { "$hour" : "$date" },
                                      'minute' : { "$minute" : "$date" }},
-                           'count' : { '$sum' : 1 }}
+                           'count' : { '$sum' : "$value" }}
             }
         ]
     )
