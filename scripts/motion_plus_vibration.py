@@ -19,7 +19,7 @@ def LoggingData(elapsed):
     else:
             print("error fetching, status is ", r.status_code)
 
-#time 
+#time
 timestamp = datetime.datetime.now().isoformat()
 
 #When the angle(x) is in the negative the motion should be undetected
@@ -28,6 +28,7 @@ timestamp = datetime.datetime.now().isoformat()
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 GPIO.setup(18,GPIO.OUT)
+#GPIO.setup(16,GPIO.OUT)
 
 #Accelerometer
 print("""This example will detect motion using the accelerometer.
@@ -52,18 +53,18 @@ try:
             leds.on()
             print ("Vibration On")
             GPIO.output(18,GPIO.HIGH)
+            #GPIO.output(16,GPIO.HIGH)
         elif x < 0 and last_x > 0:
             elapsed = time.time() - start_time
             print("Motion UnDetected")
             leds.off()
             print ("Vibration Off")
             GPIO.output(18,GPIO.LOW)
+            #GPIO.output(16,GPIO.LOW)
             LoggingData(elapsed)
 #updates x
 
         last_x = x
-            
+
 except KeyboardInterrupt:
     pass
-
-
